@@ -6,13 +6,12 @@
 
         <title>Laravel</title>
 
-        <!-- Fonts -->
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
         @vite('resources/css/app.css')
     </head>
     <body class="antialiased">
         <h1 class="text-3xl font-bold underline text-red-500">
-            Hello world!
+            Hello, world!
         </h1>
     </body>
 </html>

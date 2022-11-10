@@ -10,8 +10,15 @@
         @vite('resources/css/app.css')
     </head>
     <body class="antialiased">
-        <h1 class="text-3xl font-bold underline text-red-500">
-            Hello, world!
+        @php
+            $quote = $movies->quote->random();
+        @endphp
+        <h1>
+            {{ $movies->title }}
         </h1>
+        <p>
+            {{ $quote->text }}
+        </p>
+        <img src="{{ $quote->image }}" />
     </body>
 </html>

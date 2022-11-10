@@ -5,6 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Laravel</title>
+        
+        <link rel="stylesheet" href="index.css">
 
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
         @vite('resources/css/app.css')
@@ -13,12 +15,21 @@
         @php
             $quote = $movies->quote->random();
         @endphp
-        <h1>
-            {{ $movies->title }}
-        </h1>
-        <p>
-            {{ $quote->text }}
-        </p>
-        <img src="{{ $quote->image }}" />
+        <section class = "flex justify-center items-center w-full h-screen bg-gradient-radial from-gray-889 to-gray-888">
+            <div class = "flex flex-col text-center">
+                <img 
+                    src="{{ $quote->image }}" 
+                    class = "h-96 w-[700px] rounded-lg mb-[65px] m-auto"
+                />
+
+                <p class = "text-white mb-[114px] text-5xl font-sansation">
+                    "{{ $quote->text }}?"
+                </p>
+
+                <h1 class = "text-white text-5xl underline font-sansation">
+                    {{ $movies->title }}
+                </h1>
+            </div>
+        </section>
     </body>
 </html>

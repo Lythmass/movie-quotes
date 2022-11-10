@@ -1,6 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Models\Movie;
+use App\Http\Controllers\MovieController;
 
-Route::get('/', [Movie::class, 'index']);
+Route::get('/', [MovieController::class, 'index']);

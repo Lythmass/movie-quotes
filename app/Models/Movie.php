@@ -9,10 +9,7 @@ class Movie extends Model
 {
 	use HasFactory;
 
-	public function index()
-	{
-		return view('movies.index');
-	}
+	protected $fillable = ['title', 'slug'];
 
 	public function quote()
 	{

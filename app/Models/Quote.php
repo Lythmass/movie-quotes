@@ -9,6 +9,8 @@ class Quote extends Model
 {
 	use HasFactory;
 
+	protected $fillable = ['text', 'image'];
+
 	public function movie()
 	{
 		return $this->belongsTo(Movie::class);

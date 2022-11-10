@@ -5,17 +5,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Laravel</title>
+        
+        <link rel="stylesheet" href="index.css">
 
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-        <style>
-            @font-face {
-                font-family: 'sansation';
-                font-style: normal;
-                font-weight: 400;
-                src: url('/fonts/Sansation_Regular.ttf');
-            }
-
-        </style>
         @vite('resources/css/app.css')
     </head>
     <body class="antialiased">
@@ -30,7 +23,7 @@
                 />
 
                 <p class = "text-white mb-[114px] text-5xl font-sansation">
-                    "{{ $quote->text }}"
+                    "{{ $quote->text }}?"
                 </p>
 
                 <h1 class = "text-white text-5xl underline font-sansation">

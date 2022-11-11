@@ -12,4 +12,11 @@ class MovieController extends Controller
 			'movies' => Movie::inRandomOrder()->first(),
 		]);
 	}
+
+	public function show(Movie $movie)
+	{
+		return view('movies.show', [
+			'movie' => $movie,
+		]);
+	}
 }

@@ -12,7 +12,7 @@
         @vite('resources/css/app.css')
     </head>
     <body class="antialiased">
-        <section class = "flex justify-center items-center w-full h-screen bg-gradient-radial from-gray-889 to-gray-888">
+        <section class = "flex flex-col justify-center items-center w-full min-h-screen bg-gradient-radial from-gray-889 to-gray-888">
             {{ $slot }}
         </section>
     </body>

@@ -1,6 +1,6 @@
 <x-layout>
-    <form action="/" method="post" class = "bg-white p-[4rem] rounded-lg">
-
+    <form action="{{ route('login') }}" method="post" class = "bg-white p-[4rem] rounded-lg">
+        @csrf
         <div class = "flex flex-col mb-4">
 
             <label for="username" class = "text-black text-lg mb-2">

@@ -3,12 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreAuthRequest;
+use App\Models\Movie;
+use App\Models\Quote;
 
 class UserController extends Controller
 {
 	public function index()
 	{
-		return view('users.index');
+		return view('users.index', [
+			'movies' => Movie::all(),
+			'quotes' => Quote::all(),
+		]);
 	}
 
 	public function create()

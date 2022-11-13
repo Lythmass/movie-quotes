@@ -11,6 +11,9 @@
     </head>
     <body class="antialiased">
         <section class = "flex flex-col justify-center items-center w-full min-h-screen bg-gradient-radial from-gray-889 to-gray-888">
+            @auth
+                <x-links-for-admin/>
+            @endauth
             {{ $slot }}
         </section>
     </body>

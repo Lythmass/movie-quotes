@@ -21,3 +21,4 @@ Route::patch('dashboard/movies/{movie}', [AdminMovieController::class, 'update']
 Route::delete('dashboard/movies/{movie}', [AdminMovieController::class, 'destroy'])->name('movies-delete')->middleware('auth');
 
 Route::get('dashboard/quotes', [AdminQuoteController::class, 'index'])->name('quotes-dashboard')->middleware('auth');
+Route::delete('dashboard/quotes/{quote}', [AdminQuoteController::class, 'destroy'])->name('quotes-delete')->middleware('auth');

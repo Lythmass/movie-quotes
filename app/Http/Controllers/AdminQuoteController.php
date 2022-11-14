@@ -12,4 +12,10 @@ class AdminQuoteController extends Controller
 			'quotes' => Quote::all(),
 		]);
 	}
+
+	public function destroy(Quote $quote)
+	{
+		$quote->delete();
+		return back();
+	}
 }

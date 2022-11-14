@@ -16,6 +16,6 @@ Route::post('logout', [UserController::class, 'destroy'])->name('logout')->middl
 Route::get('dashboard/movies', [AdminMovieController::class, 'index'])->name('movies-dashboard')->middleware('auth');
 Route::get('dashboard/movies/{movie}/edit', [AdminMovieController::class, 'edit'])->name('movies-edit')->middleware('auth');
 Route::patch('dashboard/movies/{movie}', [AdminMovieController::class, 'update'])->name('movies-update')->middleware('auth');
-Route::delete('dashboard/movies/{movie}', [AdminMovieController::class, 'destroy'])->name('delete-movie')->middleware('auth');
+Route::delete('dashboard/movies/{movie}', [AdminMovieController::class, 'destroy'])->name('movies-delete')->middleware('auth');
 
 Route::get('dashboard/quotes', [AdminQuoteController::class, 'index'])->name('quotes-dashboard')->middleware('auth');

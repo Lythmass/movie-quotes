@@ -9,7 +9,7 @@ class Quote extends Model
 {
 	use HasFactory;
 
-	protected $fillable = ['text', 'image'];
+	protected $fillable = ['text', 'image', 'movie_id'];
 
 	public function movie()
 	{

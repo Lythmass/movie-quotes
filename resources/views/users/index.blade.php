@@ -7,6 +7,7 @@
                     <li class = "text-black underline leading-3"><a href="{{route('movies-dashboard')}}">Movies</a></li>
                     <li class = "text-blue-700 hover:text-blue-900"><a href="{{route('quotes-dashboard')}}">Quotes</a></li>    
                 @else
+                    <a href = "{{route('quotes-create')}}" class = "text-white bg-green-600 px-4 py-1 rounded absolute left-8">+ Create Quote</a>
                     <li class = "text-blue-700 hover:text-blue-900"><a href="{{route('movies-dashboard')}}">Movies</a></li>
                     <li class = "text-black underline leading-3"><a href="{{route('quotes-dashboard')}}">Quotes</a></li>    
                 @endif

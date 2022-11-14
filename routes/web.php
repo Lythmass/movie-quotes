@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', [MovieController::class, 'index'])->name('main');
 Route::get('movie/{movie:slug}', [MovieController::class, 'show'])->name('movie');
+Route::delete('dashboard/movies/{movie}', [MovieController::class, 'destroy'])->name('delete-movie')->middleware('auth');
 
 Route::get('dashboard/movies', [UserController::class, 'index'])->name('movies-dashboard')->middleware('auth');
 Route::get('dashboard/quotes', [UserController::class, 'index'])->name('quotes-dashboard')->middleware('auth');

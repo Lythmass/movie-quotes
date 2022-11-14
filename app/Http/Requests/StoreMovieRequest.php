@@ -12,6 +12,7 @@ class StoreMovieRequest extends FormRequest
 	{
 		return [
 			'title' => ['required', 'min:2'],
+			'slug'  => ['required', 'min:2', 'unique:movies,slug'],
 		];
 	}
 }

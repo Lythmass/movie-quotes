@@ -14,6 +14,18 @@ class AdminMovieController extends Controller
 		]);
 	}
 
+	public function create()
+	{
+		return view('movies.create');
+	}
+
+	public function store(StoreMovieRequest $request)
+	{
+		$attributes = $request->validated();
+		Movie::create($attributes);
+		return redirect(route('movies-dashboard'));
+	}
+
 	public function edit(Movie $movie)
 	{
 		return view('movies.edit', [

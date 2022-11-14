@@ -1,13 +1,22 @@
 <x-layout>
     
         @php
-            $quote = $movies->quote->random();
+            if(count($movies->quote)) {
+                $quote = $movies->quote->random();
+            }
         @endphp
         
-        <div class = "flex flex-col text-center">
-            <x-image :quote="$quote" class="rounded-lg mb-[4rem]"/>
-            <x-quote-text :quote="$quote" class="mb-[7.1rem] text-white"/>
-            <x-movie-title :movies="$movies" class="underline"/>
-        </div>
+        @if (count($movies->quote))
+            <div class = "flex flex-col text-center">
+                <x-image :quote="$quote" class="rounded-lg mb-[4rem]"/>
+                <x-quote-text :quote="$quote" class="mb-[7.1rem] text-white"/>
+                <x-movie-title :movies="$movies" class="underline"/>
+            </div>
+        @else
+            <div class = "flex flex-col text-center gap-10">
+                <x-movie-title :movies="$movies" class="underline"/>
+                <h1 class="mb-[7.1rem] text-white text-xl">No Quotes for {{$movies->title}} </h1>
+            </div>
+        @endif
 
 </x-layout>

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreQuoteRequest;
+use App\Models\Movie;
 use App\Models\Quote;
 
 class AdminQuoteController extends Controller
@@ -11,6 +13,21 @@ class AdminQuoteController extends Controller
 		return view('users.index', [
 			'quotes' => Quote::all(),
 		]);
+	}
+
+	public function create()
+	{
+		return view('quotes.create', [
+			'movies' => Movie::all(),
+		]);
+	}
+
+	public function store(StoreQuoteRequest $request)
+	{
+		$attributes = $request->validated();
+		$attributes['image'] = request()->file('image')->store('images');
+		Quote::create($attributes);
+		return redirect(route('quotes-dashboard'));
 	}
 
 	public function destroy(Quote $quote)

@@ -19,11 +19,4 @@ class MovieController extends Controller
 			'movie' => $movie,
 		]);
 	}
-
-	public function destroy(Movie $movie)
-	{
-		$movie->delete();
-		$movie->quote()->delete();
-		return back();
-	}
 }

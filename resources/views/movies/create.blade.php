@@ -9,7 +9,7 @@
         <form method = "post" action = "{{route('movies-store')}}" class = "flex flex-col items-center w-full h-3/4 justify-evenly">
             @csrf
             <x-movie-input value="" name="title"/>
-            <x-movie-input value="" name="slug"/>
+
             <x-submit-button text="Submit"/>
         </form>
         

@@ -22,6 +22,10 @@ class AdminMovieController extends Controller
 	public function store(StoreMovieRequest $request)
 	{
 		$attributes = $request->validated();
+
+		$slug = $this->createSlug($attributes);
+		$attributes['slug'] = $slug;
+
 		Movie::create($attributes);
 		return redirect(route('movies-dashboard'));
 	}
@@ -36,6 +40,10 @@ class AdminMovieController extends Controller
 	public function update(Movie $movie, StoreMovieRequest $request)
 	{
 		$attributes = $request->validated();
+
+		$slug = $this->createSlug($attributes);
+		$attributes['slug'] = $slug;
+
 		$movie->update($attributes);
 		return redirect(route('movies-dashboard'));
 	}
@@ -45,5 +53,14 @@ class AdminMovieController extends Controller
 		$movie->delete();
 		$movie->quote()->delete();
 		return back();
+	}
+
+	protected function createSlug(array $attributes)
+	{
+		$slug = strtolower($attributes['title']);
+		$countOccurances = Movie::where('title', $slug)->count();
+		$slug = strval($slug) . strval($countOccurances + 1);
+
+		return $slug;
 	}
 }

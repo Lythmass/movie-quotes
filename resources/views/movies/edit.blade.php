@@ -11,7 +11,6 @@
             @method('PATCH')
 
             <x-movie-input :value="$movie->title" name="title"/>
-            <x-movie-input :value="$movie->slug" name="slug"/>
             
             <x-submit-button text="Rename"/>
         </form>

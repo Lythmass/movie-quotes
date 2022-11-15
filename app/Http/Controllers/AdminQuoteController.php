@@ -30,6 +30,22 @@ class AdminQuoteController extends Controller
 		return redirect(route('quotes-dashboard'));
 	}
 
+	public function edit(Quote $quote)
+	{
+		return view('quotes.edit', [
+			'quote'  => $quote,
+			'movies' => Movie::all(),
+		]);
+	}
+
+	public function update(Quote $quote, StoreQuoteRequest $request)
+	{
+		$attributes = $request->validated();
+		$attributes['image'] = request()->file('image')->store('images');
+		$quote->update($attributes);
+		return redirect(route('quotes-dashboard'));
+	}
+
 	public function destroy(Quote $quote)
 	{
 		$quote->delete();

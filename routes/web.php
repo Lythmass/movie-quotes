@@ -22,5 +22,7 @@ Route::delete('dashboard/movies/{movie}', [AdminMovieController::class, 'destroy
 
 Route::get('dashboard/quotes', [AdminQuoteController::class, 'index'])->name('quotes-dashboard')->middleware('auth');
 Route::get('dashboard/quotes/create', [AdminQuoteController::class, 'create'])->name('quotes-create')->middleware('auth');
+Route::get('dashboard/quotes/{quote}/edit', [AdminQuoteController::class, 'edit'])->name('quotes-edit')->middleware('auth');
 Route::post('dashboard/quotes/create', [AdminQuoteController::class, 'store'])->name('quotes-store')->middleware('auth');
+Route::patch('dashboard/quotes/{quote}', [AdminQuoteController::class, 'update'])->name('quotes-update')->middleware('auth');
 Route::delete('dashboard/quotes/{quote}', [AdminQuoteController::class, 'destroy'])->name('quotes-delete')->middleware('auth');

@@ -23,16 +23,19 @@ class AdminMovieController extends Controller
 		return view('movies.create');
 	}
 
-	public function store(StoreMovieRequest $request)
+	public function store($locale, StoreMovieRequest $request)
 	{
+		$this->checkLocale($locale);
 		$attributes = $request->validated();
 
-		$slug = $this->createSlug($attributes);
+		$attributes = [
+			'title' => [
+				'en' => $attributes['en'],
+				'ka' => $attributes['ka'],
+			],
+		];
 
-		$attributes['title']['en'] = $attributes['title'][0];
-		unset($attributes['title'][0]);
-		$attributes['title']['ka'] = $attributes['title'][1];
-		unset($attributes['title'][1]);
+		$slug = $this->createSlug($attributes);
 
 		$attributes['slug'] = $slug;
 
@@ -49,16 +52,18 @@ class AdminMovieController extends Controller
 		]);
 	}
 
-	public function update(Movie $movie, StoreMovieRequest $request)
+	public function update($locale, Movie $movie, StoreMovieRequest $request)
 	{
+		$this->checkLocale($locale);
 		$attributes = $request->validated();
 
+		$attributes = [
+			'title' => [
+				'en' => $attributes['en'],
+				'ka' => $attributes['ka'],
+			],
+		];
 		$slug = $this->createSlug($attributes);
-
-		$attributes['title']['en'] = $attributes['title'][0];
-		unset($attributes['title'][0]);
-		$attributes['title']['ka'] = $attributes['title'][1];
-		unset($attributes['title'][1]);
 
 		$attributes['slug'] = $slug;
 
@@ -75,7 +80,7 @@ class AdminMovieController extends Controller
 
 	protected function createSlug(array $attributes)
 	{
-		$slug = $attributes['title'][0];
+		$slug = $attributes['title']['en'];
 		$countOccurances = Movie::where('title', 'like', '%' . $slug . '%')->count();
 		$slug = strtolower(strval($slug) . strval($countOccurances + 1));
 

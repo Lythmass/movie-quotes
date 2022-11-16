@@ -3,7 +3,7 @@
         href = "{{route('movies-dashboard', [app()->getLocale()])}}"
         class = "text-[1.4rem] text-white underline hover:text-red-400"
     >
-        Dashboard
+    @lang('profile.dashboard')
     </a>
     <form 
         action={{ route('logout') }}
@@ -14,7 +14,7 @@
             type="submit"
             class = "text-[1.4rem] text-white underline hover:text-red-400"
         >
-            Log Out
+            @lang('profile.logout')
         </button>
     </form>
 </div>

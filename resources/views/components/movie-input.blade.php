@@ -1,11 +1,14 @@
 @props(['value', 'name', 'language', 'id', 'text'])
 
-<label for="{{ $name }}" class = "text-xl">Movie {{ ucwords($text) }} in {{ $language }}</label>
+<label for="{{ $id }}" class = "text-xl">@lang($language)</label>
 @if (strlen($value))
-    <input value = {{ $value }} class = "border border-gray-700" id = "{{ $id }}" name = "{{ $name }}" type="text">
+    <input required value = {{ $value }} class = "border border-gray-700" id = "{{ $id }}" name = "{{ $name }}" type="text">
+    @error('{{ $name }}')
+        <p class="text-red-500">{{ $message }}</p>
+    @enderror
 @else
-    <input value = '' class = "border border-gray-700" id = "{{ $id }}" name = "{{ $name }}" type="text">
+    <input required value = '' class = "border border-gray-700" id = "{{ $id }}" name = "{{ $name }}" type="text">
+    @error($name)
+        <p class="text-red-500">{{ $message }}</p>
+    @enderror
 @endif
-@error('{{ $name }}')
-    {{ $message }}
-@enderror

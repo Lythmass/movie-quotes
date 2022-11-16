@@ -25,15 +25,16 @@ class AdminQuoteController extends Controller
 		]);
 	}
 
-	public function store(StoreQuoteRequest $request)
+	public function store($locale, StoreQuoteRequest $request)
 	{
+		$this->checkLocale($locale);
 		$attributes = $request->validated();
 		$attributes['image'] = request()->file('image')->store('images');
 
-		$attributes['text']['en'] = $attributes['text'][0];
-		unset($attributes['text'][0]);
-		$attributes['text']['ka'] = $attributes['text'][1];
-		unset($attributes['text'][1]);
+		$attributes['text'] = [
+			'en' => $attributes['en'],
+			'ka' => $attributes['ka'],
+		];
 
 		Quote::create($attributes);
 		return redirect(route('quotes-dashboard', [app()->getLocale()]));
@@ -48,15 +49,16 @@ class AdminQuoteController extends Controller
 		]);
 	}
 
-	public function update(Quote $quote, StoreQuoteRequest $request)
+	public function update($locale, Quote $quote, StoreQuoteRequest $request)
 	{
+		$this->checkLocale($locale);
 		$attributes = $request->validated();
 		$attributes['image'] = request()->file('image')->store('images');
 
-		$attributes['text']['en'] = $attributes['text'][0];
-		unset($attributes['text'][0]);
-		$attributes['text']['ka'] = $attributes['text'][1];
-		unset($attributes['text'][1]);
+		$attributes['text'] = [
+			'en' => $attributes['en'],
+			'ka' => $attributes['ka'],
+		];
 
 		$quote->update($attributes);
 		return redirect(route('quotes-dashboard', [app()->getLocale()]));

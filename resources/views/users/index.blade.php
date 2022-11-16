@@ -4,7 +4,7 @@
             <ul class = "flex gap-10 justify-center text-xl relative">
                 @if (request()->route()->getName() == 'movies-dashboard')
                     <a href = "{{route('movies-create')}}" class = "text-white bg-green-600 px-4 py-1 rounded absolute left-8">+ Create Movie</a>
-                    <li class = "text-black underline leading-3"><a href="{{route('movies-dashboard')}}">Movies</a></li>
+                    <li class = "text-black underline leading-3"><a href="{{route('movies-dashboard', [app()->getLocale()])}}">Movies</a></li>
                     <li class = "text-blue-700 hover:text-blue-900"><a href="{{route('quotes-dashboard')}}">Quotes</a></li>    
                 @else
                     <a href = "{{route('quotes-create')}}" class = "text-white bg-green-600 px-4 py-1 rounded absolute left-8">+ Create Quote</a>

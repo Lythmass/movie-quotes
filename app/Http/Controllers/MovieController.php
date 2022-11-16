@@ -17,7 +17,6 @@ class MovieController extends Controller
 
 		return view('movies.index', [
 			'movies' => Movie::inRandomOrder()->first(),
-			'locale' => $locale,
 		]);
 	}
 
@@ -31,7 +30,6 @@ class MovieController extends Controller
 
 		return view('movies.show', [
 			'movie'  => $movie,
-			'locale' => $locale,
 		]);
 	}
 }

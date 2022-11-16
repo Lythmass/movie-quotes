@@ -1,6 +1,6 @@
 <x-layout>
     <div class="w-[43.75rem] mt-[5rem]">
-        <x-movie-title :locale="$locale" :movies="$movie" class="mb-[5rem] text-left"/>
+        <x-movie-title :movies="$movie" class="mb-[5rem] text-left"/>
         @foreach ($movie->quote as $eachQuote)
             <div class = "flex flex-col text-center mb-[4rem]">
                 <div class="bg-white rounded-lg">

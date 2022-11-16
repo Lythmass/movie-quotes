@@ -1,10 +1,13 @@
 @php
-    $route = route('movie', [$locale, $movies->slug]);
+    $route = route('movie', [app()->getLocale(), $movies->slug]);
 @endphp
 <h1 
     {{ $attributes->merge(['class' => 'text-white text-5xl']) }}
 >
-    
-    {!! !request()->is($route) ? '<a href='.$route.'>'.$movies->getTranslations('title')[$locale].'</a>' : $movies->getTranslations('title')[$locale] !!}
+    @if ( !request()->is($route) )
+        <a href="{{ $route }}">{{ $movies->title }}</a>
+    @else
+        {{ $movies->title }}
+    @endif
     
 </h1>

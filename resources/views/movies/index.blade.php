@@ -10,12 +10,12 @@
             <div class = "flex flex-col text-center">
                 <x-image :quote="$quote" class="rounded-lg mb-[4rem]"/>
                 <x-quote-text :quote="$quote" class="mb-[7.1rem] text-white"/>
-                <x-movie-title :locale="$locale" :movies="$movies" class="underline"/>
+                <x-movie-title movies="$movies" class="underline"/>
             </div>
         @else
             @if($movies != null) 
                 <div class = "flex flex-col text-center gap-10">
-                    <x-movie-title :locale="$locale" :movies="$movies" class="underline"/>
+                    <x-movie-title :movies="$movies" class="underline"/>
                     <h1 class="mb-[7.1rem] text-white text-xl">No Quotes for {{ $movies->getTranslations('title')[request()->path()] }} </h1>
                 </div>
             

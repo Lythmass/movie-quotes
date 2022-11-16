@@ -4,11 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreMovieRequest;
 use App\Models\Movie;
+use Illuminate\Support\Facades\App;
 
 class AdminMovieController extends Controller
 {
-	public function index()
+	public function index($locale)
 	{
+		if (!in_array($locale, ['en', 'ka']))
+		{
+			abort(404);
+		}
+		App::setLocale($locale);
+
 		return view('users.index', [
 			'movies' => Movie::all(),
 		]);
@@ -33,11 +40,17 @@ class AdminMovieController extends Controller
 		$attributes['slug'] = $slug;
 
 		Movie::create($attributes);
-		return redirect(route('movies-dashboard'));
+		return redirect(route('movies-dashboard', [app()->getLocale()]));
 	}
 
-	public function edit(Movie $movie)
+	public function edit($locale, Movie $movie)
 	{
+		if (!in_array($locale, ['en', 'ka']))
+		{
+			abort(404);
+		}
+		App::setLocale($locale);
+
 		return view('movies.edit', [
 			'movie' => $movie,
 		]);
@@ -48,10 +61,16 @@ class AdminMovieController extends Controller
 		$attributes = $request->validated();
 
 		$slug = $this->createSlug($attributes);
+
+		$attributes['title']['en'] = $attributes['title'][0];
+		unset($attributes['title'][0]);
+		$attributes['title']['ka'] = $attributes['title'][1];
+		unset($attributes['title'][1]);
+
 		$attributes['slug'] = $slug;
 
 		$movie->update($attributes);
-		return redirect(route('movies-dashboard'));
+		return redirect(route('movies-dashboard', [app()->getLocale()]));
 	}
 
 	public function destroy(Movie $movie)
@@ -63,9 +82,9 @@ class AdminMovieController extends Controller
 
 	protected function createSlug(array $attributes)
 	{
-		$slug = strtolower($attributes['title'][0]);
-		$countOccurances = Movie::where('title', $slug)->count();
-		$slug = strval($slug) . strval($countOccurances + 1);
+		$slug = $attributes['title'][0];
+		$countOccurances = Movie::where('title', 'like', '%' . $slug . '%')->count();
+		$slug = strtolower(strval($slug) . strval($countOccurances + 1));
 
 		return $slug;
 	}

@@ -10,7 +10,8 @@
             @csrf
             @method('PATCH')
 
-            <x-movie-input :value="$movie->title" name="title"/>
+            <x-movie-input :value="$movie->getTranslations('title')['en']" id="en" text="title" name="title[]" language="English"/>
+            <x-movie-input :value="$movie->getTranslations('title')['ka']" id="ka" text="title" name="title[]" language="Georgian"/>
             
             <x-submit-button text="Rename"/>
         </form>

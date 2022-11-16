@@ -11,7 +11,7 @@ Route::get('{locale}/movie/{movie:slug}', [MovieController::class, 'show'])->nam
 
 Route::get('{locale}/login', [UserController::class, 'create'])->name('login-page')->middleware('guest');
 Route::post('{locale}/login', [UserController::class, 'store'])->name('login')->middleware('guest');
-Route::post('logout', [UserController::class, 'destroy'])->name('logout')->middleware('auth');
+Route::post('{locale}/logout', [UserController::class, 'destroy'])->name('logout')->middleware('auth');
 
 Route::get('{locale}/dashboard/movies', [AdminMovieController::class, 'index'])->name('movies-dashboard')->middleware('auth');
 Route::get('{locale}/dashboard/movies/{movie}/edit', [AdminMovieController::class, 'edit'])->name('movies-edit')->middleware('auth');

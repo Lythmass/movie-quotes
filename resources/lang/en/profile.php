@@ -24,4 +24,7 @@ return [
 	'upload-image'  => 'Upload Image',
 	'edit-quote'    => 'Edit Quote',
 	'change'        => 'Change',
+	'username'      => 'Username',
+	'password'      => 'Password',
+	'login'         => 'Log In',
 ];

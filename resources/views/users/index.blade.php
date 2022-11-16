@@ -3,13 +3,13 @@
         <div class = "fixed w-3/4 h-[4rem] py-5 shadow-lg shadow-slate-300 bg-white rounded-t-xl">
             <ul class = "flex gap-10 justify-center text-xl relative">
                 @if (request()->route()->getName() == 'movies-dashboard')
-                    <a href = "{{route('movies-create', [app()->getLocale()])}}" class = "text-white bg-green-600 px-4 py-1 rounded absolute left-8">+ Create Movie</a>
-                    <li class = "text-black underline leading-3"><a href="{{route('movies-dashboard', [app()->getLocale()])}}">Movies</a></li>
-                    <li class = "text-blue-700 hover:text-blue-900"><a href="{{route('quotes-dashboard', [app()->getLocale()])}}">Quotes</a></li>    
+                    <a href = "{{route('movies-create', [app()->getLocale()])}}" class = "text-white bg-green-600 px-4 py-1 rounded absolute bottom-0 left-8">+ @lang('profile.create-movie')</a>
+                    <li class = "text-black underline leading-3"><a href="{{route('movies-dashboard', [app()->getLocale()])}}">@lang('profile.movies')</a></li>
+                    <li class = "text-blue-700 hover:text-blue-900"><a href="{{route('quotes-dashboard', [app()->getLocale()])}}">@lang('profile.quotes')</a></li>    
                 @else
-                    <a href = "{{route('quotes-create', [app()->getLocale()])}}" class = "text-white bg-green-600 px-4 py-1 rounded absolute left-8">+ Create Quote</a>
-                    <li class = "text-blue-700 hover:text-blue-900"><a href="{{route('movies-dashboard', [app()->getLocale()])}}">Movies</a></li>
-                    <li class = "text-black underline leading-3"><a href="{{route('quotes-dashboard', [app()->getLocale()])}}">Quotes</a></li>    
+                    <a href = "{{route('quotes-create', [app()->getLocale()])}}" class = "text-white bg-green-600 px-4 py-1 rounded absolute bottom-0 left-8">+ @lang('profile.create-quote')</a>
+                    <li class = "text-blue-700 hover:text-blue-900"><a href="{{route('movies-dashboard', [app()->getLocale()])}}">@lang('profile.movies')</a></li>
+                    <li class = "text-black underline leading-3"><a href="{{route('quotes-dashboard', [app()->getLocale()])}}">@lang('profile.quotes')</a></li>    
                 @endif
             </ul>
         </div>

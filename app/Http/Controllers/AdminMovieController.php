@@ -24,6 +24,12 @@ class AdminMovieController extends Controller
 		$attributes = $request->validated();
 
 		$slug = $this->createSlug($attributes);
+
+		$attributes['title']['en'] = $attributes['title'][0];
+		unset($attributes['title'][0]);
+		$attributes['title']['ka'] = $attributes['title'][1];
+		unset($attributes['title'][1]);
+
 		$attributes['slug'] = $slug;
 
 		Movie::create($attributes);
@@ -57,7 +63,7 @@ class AdminMovieController extends Controller
 
 	protected function createSlug(array $attributes)
 	{
-		$slug = strtolower($attributes['title']);
+		$slug = strtolower($attributes['title'][0]);
 		$countOccurances = Movie::where('title', $slug)->count();
 		$slug = strval($slug) . strval($countOccurances + 1);
 

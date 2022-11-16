@@ -8,7 +8,8 @@
         <div class = "w-fill h-[4rem] py-10"></div>    
         <form method = "post" action = "{{route('movies-store')}}" class = "flex flex-col items-center w-full h-3/4 justify-evenly">
             @csrf
-            <x-movie-input value="" name="title"/>
+            <x-movie-input value="" id="en" text="title" name="title[]" language="English"/>
+            <x-movie-input value="" id="ka" text="title" name="title[]" language="Georgian"/>
 
             <x-submit-button text="Submit"/>
         </form>

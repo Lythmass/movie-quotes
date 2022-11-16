@@ -9,8 +9,16 @@
         <form enctype="multipart/form-data" method = "post" action = "{{route('quotes-store')}}" class = "flex flex-col items-center w-full h-3/4 justify-center gap-10">
             @csrf
             <div class = "flex gap-5">
-                <label for="text" class = "text-xl" >Quote Text:</label>    
-                <input type="text" class = "border border-gray-700" name="text" id="text">
+                <label for="text" class = "text-xl" >Quote Text in English:</label>    
+                <input type="text" class = "border border-gray-700" name="text[]" id="en">
+                @error('text')
+                    {{ $message }}
+                @enderror
+            </div>
+
+            <div class = "flex gap-5">
+                <label for="text" class = "text-xl" >Quote Text in Georgian:</label>    
+                <input type="text" class = "border border-gray-700" name="text[]" id="ka">
                 @error('text')
                     {{ $message }}
                 @enderror

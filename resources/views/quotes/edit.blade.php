@@ -10,13 +10,21 @@
             @csrf
             @method('PATCH')
             <div class = "flex gap-5">
-                <label for="text" class = "text-xl" >Quote Text:</label>    
-                <input value = "{{ $quote->text }}" type="text" class = "border border-gray-700" name="text" id="text">
+                <label for="text" class = "text-xl" >Quote Text in English:</label>    
+                <input value = "{{ $quote->getTranslations('text')['en'] }}" type="text" class = "border border-gray-700" name="text[]" id="en">
                 @error('text')
                     {{ $message }}
                 @enderror
             </div>
-            
+
+            <div class = "flex gap-5">
+                <label for="text" class = "text-xl" >Quote Text in Georgian:</label>    
+                <input value = "{{ $quote->getTranslations('text')['ka'] }}" type="text" class = "border border-gray-700" name="text[]" id="ka">
+                @error('text')
+                    {{ $message }}
+                @enderror
+            </div>
+
             <div class = "flex gap-5 items-center">
                 <label for="movie_id" class = "text-xl">Choose Movie:</label>
                 <select name="movie_id" id="movie_id" class = "text-center py-3">

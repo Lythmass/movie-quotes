@@ -10,19 +10,16 @@ class AdminMovieController extends Controller
 {
 	public function index($locale)
 	{
-		if (!in_array($locale, ['en', 'ka']))
-		{
-			abort(404);
-		}
-		App::setLocale($locale);
-
+		$this->checkLocale($locale);
 		return view('users.index', [
 			'movies' => Movie::all(),
 		]);
 	}
 
-	public function create()
+	public function create($locale)
 	{
+		$this->checkLocale($locale);
+
 		return view('movies.create');
 	}
 
@@ -45,11 +42,7 @@ class AdminMovieController extends Controller
 
 	public function edit($locale, Movie $movie)
 	{
-		if (!in_array($locale, ['en', 'ka']))
-		{
-			abort(404);
-		}
-		App::setLocale($locale);
+		$this->checkLocale($locale);
 
 		return view('movies.edit', [
 			'movie' => $movie,
@@ -87,5 +80,14 @@ class AdminMovieController extends Controller
 		$slug = strtolower(strval($slug) . strval($countOccurances + 1));
 
 		return $slug;
+	}
+
+	protected function checkLocale($locale)
+	{
+		if (!in_array($locale, ['en', 'ka']))
+		{
+			abort(404);
+		}
+		return App::setLocale($locale);
 	}
 }

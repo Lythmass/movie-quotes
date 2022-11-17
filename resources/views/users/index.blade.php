@@ -1,6 +1,6 @@
 <x-layout>
-    <div class = "flex flex-col w-3/4 h-[35rem] bg-white rounded-xl shadow-lg">
-        <div class = "fixed w-3/4 h-[4rem] py-5 shadow-lg shadow-slate-300 bg-white rounded-t-xl">
+    <div class = "flex flex-col w-[70rem] h-[35rem] bg-white rounded-xl shadow-lg">
+        <div class = "fixed w-[70rem] h-[4rem] py-5 shadow-lg shadow-slate-300 bg-white rounded-t-xl">
             <ul class = "flex gap-10 justify-center text-xl relative">
                 @if (request()->route()->getName() == 'movies-dashboard')
                     <a href = "{{route('movies-create', [app()->getLocale()])}}" class = "text-white bg-green-600 px-4 py-1 rounded absolute bottom-0 left-8">+ @lang('profile.create-movie')</a>

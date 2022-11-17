@@ -11,7 +11,7 @@ Route::prefix('{locale}')->group(function () {
 	Route::get('movie/{movie:slug}', [MovieController::class, 'show'])->name('movie');
 
 	Route::get('login', [UserController::class, 'create'])->name('login-page')->middleware('guest');
-	Route::post('{login', [UserController::class, 'store'])->name('login')->middleware('guest');
+	Route::post('login', [UserController::class, 'store'])->name('login')->middleware('guest');
 	Route::post('logout', [UserController::class, 'destroy'])->name('logout')->middleware('auth');
 
 	Route::get('dashboard/movies', [AdminMovieController::class, 'index'])->name('movies-dashboard')->middleware('auth');

@@ -27,4 +27,6 @@ return [
 	'username'      => 'Username',
 	'password'      => 'Password',
 	'login'         => 'Log In',
+	'not-available' => 'No available quotes for now...',
+	'not-for-movie' => 'No quotes for',
 ];

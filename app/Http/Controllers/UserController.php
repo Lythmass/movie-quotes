@@ -9,14 +9,12 @@ class UserController extends Controller
 {
 	public function create($locale)
 	{
-		$this->checkLocale($locale);
 		App::setLocale($locale);
 		return view('users.create');
 	}
 
-	public function store($locale, StoreAuthRequest $request)
+	public function store(StoreAuthRequest $request)
 	{
-		$this->checkLocale($locale);
 		$attributes = $request->validated();
 		if (auth()->attempt($attributes))
 		{
@@ -27,20 +25,9 @@ class UserController extends Controller
 		return abort(403);
 	}
 
-	public function destroy($locale)
+	public function destroy()
 	{
-		$this->checkLocale($locale);
-
 		auth()->logout();
 		return redirect(route('main', [app()->getLocale()]));
-	}
-
-	protected function checkLocale($locale)
-	{
-		if (!in_array($locale, ['en', 'ka']))
-		{
-			abort(404);
-		}
-		return App::setLocale($locale);
 	}
 }

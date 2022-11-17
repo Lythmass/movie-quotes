@@ -4,28 +4,23 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreMovieRequest;
 use App\Models\Movie;
-use Illuminate\Support\Facades\App;
 
 class AdminMovieController extends Controller
 {
-	public function index($locale)
+	public function index()
 	{
-		$this->checkLocale($locale);
 		return view('users.index', [
 			'movies' => Movie::all(),
 		]);
 	}
 
-	public function create($locale)
+	public function create()
 	{
-		$this->checkLocale($locale);
-
 		return view('movies.create');
 	}
 
-	public function store($locale, StoreMovieRequest $request)
+	public function store(StoreMovieRequest $request)
 	{
-		$this->checkLocale($locale);
 		$attributes = $request->validated();
 
 		$attributes = [
@@ -45,8 +40,6 @@ class AdminMovieController extends Controller
 
 	public function edit($locale, Movie $movie)
 	{
-		$this->checkLocale($locale);
-
 		return view('movies.edit', [
 			'movie' => $movie,
 		]);
@@ -54,7 +47,6 @@ class AdminMovieController extends Controller
 
 	public function update($locale, Movie $movie, StoreMovieRequest $request)
 	{
-		$this->checkLocale($locale);
 		$attributes = $request->validated();
 
 		$attributes = [
@@ -71,7 +63,7 @@ class AdminMovieController extends Controller
 		return redirect(route('movies-dashboard', [app()->getLocale()]));
 	}
 
-	public function destroy(Movie $movie)
+	public function destroy($locale, Movie $movie)
 	{
 		$movie->delete();
 		$movie->quote()->delete();
@@ -85,14 +77,5 @@ class AdminMovieController extends Controller
 		$slug = strtolower(strval($slug) . strval($countOccurances + 1));
 
 		return $slug;
-	}
-
-	protected function checkLocale($locale)
-	{
-		if (!in_array($locale, ['en', 'ka']))
-		{
-			abort(404);
-		}
-		return App::setLocale($locale);
 	}
 }

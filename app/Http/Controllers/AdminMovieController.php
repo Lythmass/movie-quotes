@@ -73,7 +73,7 @@ class AdminMovieController extends Controller
 	protected function createSlug(array $attributes)
 	{
 		$slug = $attributes['title']['en'];
-		$countOccurances = Movie::where('title', 'like', '%' . $slug . '%')->count();
+		$countOccurances = Movie::where('title', 'like', '%' . strtolower($slug) . '%')->count();
 		$slug = strtolower(strval($slug) . strval($countOccurances + 1));
 
 		return $slug;

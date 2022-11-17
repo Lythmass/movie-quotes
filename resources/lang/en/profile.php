@@ -24,4 +24,9 @@ return [
 	'upload-image'  => 'Upload Image',
 	'edit-quote'    => 'Edit Quote',
 	'change'        => 'Change',
+	'username'      => 'Username',
+	'password'      => 'Password',
+	'login'         => 'Log In',
+	'not-available' => 'No available quotes for now...',
+	'not-for-movie' => 'No quotes for',
 ];

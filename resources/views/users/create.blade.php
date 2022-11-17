@@ -1,10 +1,10 @@
 <x-layout>
-    <form action="{{ route('login') }}" method="post" class = "bg-white p-[4rem] rounded-lg">
+    <form action="{{ route('login', [app()->getLocale()]) }}" method="post" class = "bg-white p-[4rem] rounded-lg">
         @csrf
         <div class = "flex flex-col mb-4">
 
             <label for="username" class = "text-black text-lg mb-2">
-                Username
+                @lang('profile.username')
             </label>
             <input 
                 required 
@@ -21,7 +21,7 @@
         <div class = "flex flex-col mb-4">
 
             <label for="password" class = "text-black text-lg mb-2">
-                Password
+                @lang('profile.password')
             </label>
             <input 
                 required 
@@ -36,7 +36,7 @@
         </div>
 
         <div class = "flex flex-col mb-4">
-            <button type="submit" class = "w-[7rem] box-border text-2xl bg-black text-white rounded">Log In</button>
+            <button type="submit" class = "w-[7rem] box-border text-2xl bg-black text-white rounded">@lang('profile.login')</button>
         </div>
 
     </form>

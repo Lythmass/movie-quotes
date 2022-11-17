@@ -6,7 +6,7 @@
     @lang('profile.dashboard')
     </a>
     <form 
-        action={{ route('logout') }}
+        action={{ route('logout', [app()->getLocale()]) }}
         method="post"
     >
         @csrf

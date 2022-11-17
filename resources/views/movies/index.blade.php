@@ -16,12 +16,12 @@
             @if($movies != null) 
                 <div class = "flex flex-col text-center gap-10">
                     <x-movie-title :movies="$movies" class="underline"/>
-                    <h1 class="mb-[7.1rem] text-white text-xl">No Quotes for {{ $movies->getTranslations('title')[request()->path()] }} </h1>
+                    <h1 class="mb-[7.1rem] text-white text-xl">@lang('profile.not-for-movie') - "{{ $movies->getTranslations('title')[request()->path()] }}" </h1>
                 </div>
             
             @else 
                 <div>
-                    <h1 class="mb-[7.1rem] text-white text-[5rem]">No available quotes!</h1>
+                    <h1 class="mb-[7.1rem] text-white text-[5rem]">@lang('profile.not-available')</h1>
                 </div>
             
             @endif

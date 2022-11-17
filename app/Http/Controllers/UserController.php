@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreAuthRequest;
+use Illuminate\Support\Facades\App;
 
 class UserController extends Controller
 {
-	public function create()
+	public function create($locale)
 	{
+		App::setLocale($locale);
 		return view('users.create');
 	}
 
@@ -17,7 +19,7 @@ class UserController extends Controller
 		if (auth()->attempt($attributes))
 		{
 			session()->regenerate();
-			return redirect(route('main'));
+			return redirect(route('main', [app()->getLocale()]));
 		}
 
 		return abort(403);
@@ -26,6 +28,6 @@ class UserController extends Controller
 	public function destroy()
 	{
 		auth()->logout();
-		return redirect(route('main'));
+		return redirect(route('main', [app()->getLocale()]));
 	}
 }

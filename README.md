@@ -75,24 +75,13 @@ Enter Password
 
 ## Resources
 
- - [Figma Design](hhttps://www.figma.com/file/IIJOKK5esgM8uK8pM3D59J/Movie-Quotes?node-id=0%3A1)
+ - [Figma Design](https://www.figma.com/file/IIJOKK5esgM8uK8pM3D59J/Movie-Quotes?node-id=0%3A1&t=vsCmJ8pLS6IM0kp7-0)
  - [Sansation Font](https://www.dafont.com/sansation.font)
  - [Spatie Translatable Package](https://spatie.be/docs/laravel-translatable/v6/introduction)
 
 
 ## Commit Rules
-* Add new feature: feat: commit short description
-    * Commit Long Description
-* Change Desgin: style: commit short description
-    * Commit Long Description
-* Fix a Bug: fix: commit short description
-    * Commit Long Description
-* Refactor code without changing functionality: refactor: commit short description
-    * Commit Long Description
-* Small Changes: chore: commit short description
-    * Commit Long Description
-
-Commits are written in present time.
+Link: https://redberry.gitbook.io/resources/other/git-is-semantikuri-komitebi
 
 ## Database Structure
 [Link to the diagram](https://drawsql.app/teams/gigi/diagrams/movie-quotes)

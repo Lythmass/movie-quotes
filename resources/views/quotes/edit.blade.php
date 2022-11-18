@@ -12,7 +12,7 @@
             <div class = "flex gap-5">
                 <label for="text" class = "text-xl" >@lang('profile.text-en'):</label>    
                 <input value = "{{ $quote->getTranslations('text')['en'] }}" type="text" class = "border border-gray-700" name="en" id="en">
-                @error('ka')
+                @error('en')
                     <p class="text-red-500">{{ $message }}</p>
                 @enderror
             </div>
@@ -39,7 +39,7 @@
                     @endforeach
                 </select>
                 @error('movie_id')
-                    {{ $message }}
+                    <p class="text-red-500">{{ $message }}</p>
                 @enderror
             </div>
 
@@ -48,7 +48,7 @@
                 <label for="image" class = "text-xl">@lang('profile.upload-image'):</label>
                 <input type="file" name="image" id="image">
                 @error('image')
-                    {{ $message }}
+                    <p class="text-red-500">{{ $message }}</p>
                 @enderror
             </div>
 

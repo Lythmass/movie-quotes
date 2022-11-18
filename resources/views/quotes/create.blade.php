@@ -37,7 +37,7 @@
                     @endforeach
                 </select>
                 @error('movie_id')
-                    {{ $message }}
+                    <p class="text-red-500">{{ $message }}</p>
                 @enderror
             </div>
 
@@ -45,7 +45,7 @@
                 <label for="image" class = "text-xl">@lang('profile.upload-image'):</label>
                 <input type="file" name="image" id="image">
                 @error('image')
-                    {{ $message }}
+                    <p class="text-red-500">{{ $message }}</p>
                 @enderror
             </div>
 

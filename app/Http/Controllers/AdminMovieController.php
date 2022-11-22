@@ -14,11 +14,6 @@ class AdminMovieController extends Controller
 		]);
 	}
 
-	public function create()
-	{
-		return view('movies.create');
-	}
-
 	public function store(StoreMovieRequest $request)
 	{
 		$attributes = $request->validated();

@@ -61,7 +61,6 @@ class AdminMovieController extends Controller
 	public function destroy($locale, Movie $movie)
 	{
 		$movie->delete();
-		$movie->quote()->delete();
 		return back();
 	}
 

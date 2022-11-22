@@ -10,7 +10,7 @@ class CheckLocale
 {
 	public function handle(Request $request, Closure $next)
 	{
-		if (!in_array($request->route('locale'), ['en', 'ka']))
+		if (!in_array($request->route('locale'), ['en', 'ka', '']))
 		{
 			abort(404);
 		}

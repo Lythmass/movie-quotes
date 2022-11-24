@@ -37,3 +37,5 @@ Route::prefix('{locale}')->group(function () {
 		});
 	});
 });
+
+Route::redirect('/', '/en');

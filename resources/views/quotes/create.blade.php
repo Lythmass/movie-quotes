@@ -10,7 +10,7 @@
             @csrf
             <div class = "flex gap-5">
                 <label for="text" class = "text-xl" >@lang('profile.text-en'):</label>    
-                <input type="text" class = "border border-gray-700" name="en" id="en">
+                <input type="text" class = "rounded py-1 px-[0.75rem] text-[1.2rem] border border-gray-700" name="en" id="en">
                 @error('en')
                     <p class="text-red-500">{{ $message }}</p>
                 @enderror
@@ -18,7 +18,7 @@
 
             <div class = "flex gap-5">
                 <label for="text" class = "text-xl" >@lang('profile.text-ka'):</label>    
-                <input type="text" class = "border border-gray-700" name="ka" id="ka">
+                <input type="text" class = "rounded py-1 px-[0.75rem] text-[1.2rem] border border-gray-700" name="ka" id="ka">
                 @error('ka')
                     <p class="text-red-500">{{ $message }}</p>
                 @enderror

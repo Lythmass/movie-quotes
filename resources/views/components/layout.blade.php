@@ -4,8 +4,9 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>{{ ucwords(request()->route()->getName()) }}</title>
         
+        <link rel="icon" href="{{ asset('images/favicon.png') }}">
         <link rel="stylesheet" href="/index.css">
         @vite('resources/css/app.css')
     </head>

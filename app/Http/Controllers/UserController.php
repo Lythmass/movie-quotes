@@ -21,8 +21,10 @@ class UserController extends Controller
 			session()->regenerate();
 			return redirect(route('main', [app()->getLocale()]));
 		}
-
-		return abort(403);
+		else
+		{
+			return back()->withErrors(['message' => 'Incorrect Credentials']);
+		}
 	}
 
 	public function destroy()

@@ -30,9 +30,12 @@
                 id = "password"
                 name = "password"
             >
-            @error('password')
-                <p class = "text-red-500 text-s mt-1">{{$message}}</p>
-            @enderror
+            @if ($errors->any())
+                <p class = "text-red-500 text-s mt-3">
+                    {{ $errors->first() }}
+                </p>            
+            @endif
+
         </div>
 
         <div class = "flex flex-col mb-4">

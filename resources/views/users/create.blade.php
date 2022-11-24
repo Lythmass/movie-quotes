@@ -1,5 +1,5 @@
 <x-layout>
-    <form action="{{ route('login', [app()->getLocale()]) }}" method="post" class = "bg-white p-[4rem] rounded-lg">
+    <form action="{{ route('login', [app()->getLocale()]) }}" method="post" class = "flex flex-col justify-center bg-white p-[5rem] rounded-lg w-[40rem] h-[27rem]">
         @csrf
         <div class = "flex flex-col mb-4">
 
@@ -14,7 +14,7 @@
                 name = "username"
             >
             @error('username')
-                <p class = "text-red-500 text-xs mt-1">{{$message}}</p>
+                <p class = "text-red-500 text-s mt-1">{{$message}}</p>
             @enderror
         </div>
 
@@ -31,7 +31,7 @@
                 name = "password"
             >
             @error('password')
-                <p class = "text-red-500 text-xs mt-1">{{$message}}</p>
+                <p class = "text-red-500 text-s mt-1">{{$message}}</p>
             @enderror
         </div>
 

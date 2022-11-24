@@ -23,11 +23,11 @@
         <div class = "font-sansation flex flex-col gap-[0.7rem] ml-10">
 
             @if ($active == 'en') 
-                <a href = "#" class = "text-[1.5rem] flex justify-center items-center rounded-full text-white border-[2px] w-[3.6rem] h-[3.6rem]">en</a>
-                <a href = "{{ route($name, $ka) }}" class = "text-[1.5rem] flex justify-center items-center rounded-full bg-white w-[3.6rem] h-[3.6rem]">ka</a>
+                <a href = "#" class = "text-[1.5rem] flex justify-center items-center rounded-full  bg-white w-[3.6rem] h-[3.6rem]">en</a>
+                <a href = "{{ route($name, $ka) }}" class = "text-[1.5rem] flex justify-center items-center rounded-full text-white border-[2px] w-[3.6rem] h-[3.6rem]">ka</a>
             @else
-                <a href = "{{ route($name, $en)}}" class = "text-[1.5rem] flex justify-center items-center rounded-full bg-white h-[3.6rem]">en</a>
-                <a href = "#" class = "text-[1.5rem] flex justify-center items-center rounded-full text-white border-[2px] w-[3.6rem] h-[3.6rem]">ka</a>
+                <a href = "{{ route($name, $en)}}" class = "text-[1.5rem] flex justify-center items-center rounded-full text-white border-[2px] h-[3.6rem]">en</a>
+                <a href = "#" class = "text-[1.5rem] flex justify-center items-center rounded-full bg-white w-[3.6rem] h-[3.6rem]">ka</a>
             @endif
 
         </div>

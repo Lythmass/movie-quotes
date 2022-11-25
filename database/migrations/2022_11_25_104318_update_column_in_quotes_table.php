@@ -15,6 +15,8 @@ return new class extends Migration {
 
 	public function down()
 	{
-		Schema::dropIfExists('quotes');
+		Schema::table('quotes', function (Blueprint $table) {
+			$table->foreignId('movie_id');
+		});
 	}
 };

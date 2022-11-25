@@ -30,9 +30,13 @@
                 id = "password"
                 name = "password"
             >
-            @if ($errors->any())
+            @error('password')
+                <p class = "text-red-500 text-s mt-1">{{$message}}</p>
+            @enderror
+
+            @if (session()->has('incorrect'))
                 <p class = "text-red-500 text-s mt-3">
-                    {{ $errors->first() }}
+                    {{ session()->get('incorrect') }}
                 </p>            
             @endif
 

@@ -23,7 +23,7 @@ class UserController extends Controller
 		}
 		else
 		{
-			return back()->withErrors(['message' => 'Incorrect Credentials']);
+			return back()->with('incorrect', __('validation.incorrect'));
 		}
 	}
 

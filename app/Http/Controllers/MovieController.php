@@ -8,8 +8,20 @@ class MovieController extends Controller
 {
 	public function index($locale)
 	{
+		$movies = Movie::inRandomOrder()->get();
+		$sendMovie = [];
+
+		foreach ($movies as $movie)
+		{
+			if (count($movie->quote))
+			{
+				$sendMovie = $movie;
+				break;
+			}
+		}
+
 		return view('movies.index', [
-			'movies' => Movie::inRandomOrder()->first(),
+			'movies' => $sendMovie,
 		]);
 	}
 

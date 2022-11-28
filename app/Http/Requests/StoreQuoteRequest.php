@@ -8,11 +8,21 @@ class StoreQuoteRequest extends FormRequest
 {
 	public function rules()
 	{
-		return [
+		$rules = [
 			'en'       => ['required', 'min:2'],
 			'ka'       => ['required', 'min:2'],
 			'movie_id' => ['required'],
-			'image'    => ['required', 'image'],
 		];
+
+		if ($this->method() == 'PATCH')
+		{
+			$rules['image'] = ['image'];
+		}
+		else
+		{
+			$rules['image'] = ['required', 'image'];
+		}
+
+		return $rules;
 	}
 }

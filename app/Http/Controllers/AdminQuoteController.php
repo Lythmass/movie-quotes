@@ -47,7 +47,11 @@ class AdminQuoteController extends Controller
 	public function update($locale, Quote $quote, StoreQuoteRequest $request)
 	{
 		$attributes = $request->validated();
-		$attributes['image'] = request()->file('image')->store('images');
+
+		if (array_key_exists('image', $attributes))
+		{
+			$attributes['image'] = request()->file('image')->store('images');
+		}
 
 		$attributes['text'] = [
 			'en' => $attributes['en'],

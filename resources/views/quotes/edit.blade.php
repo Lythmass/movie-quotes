@@ -1,12 +1,12 @@
 <x-layout>
-    <div class = "flex flex-col w-[70rem] h-[35rem] bg-white rounded-xl shadow-lg">
+    <div class = "flex flex-col w-[70rem] min-h-[35rem] bg-white rounded-xl shadow-lg">
         <div class = "fixed w-[70rem] h-[4rem] py-5 shadow-lg shadow-slate-300 bg-white rounded-t-xl">
             <div class = "flex gap-10 justify-center text-xl">
                 @lang('profile.edit-quote')
             </div>
         </div>
         <div class = "w-fill h-[4rem] py-10"></div>    
-        <form enctype="multipart/form-data" method = "post" action="{{ route('quotes-update', [app()->getLocale(), 'quote' => $quote->id]) }}" class = "flex flex-col items-center w-full h-3/4 justify-center gap-10">
+        <form enctype="multipart/form-data" method = "post" action="{{ route('quotes-update', [app()->getLocale(), 'quote' => $quote->id]) }}" class = "flex flex-col items-center w-full h-3/4 justify-center gap-10 py-[3rem]">
             @csrf
             @method('PATCH')
             <div class = "flex gap-5">

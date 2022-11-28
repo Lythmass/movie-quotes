@@ -19,6 +19,6 @@
 <script>
     function confirmDelete(title) {
         var answer = confirm(`Are you sure you want to delete ${title}?`);
-        return answer == true ? true : false;
+        return answer;
     }
 </script>
